@@ -5,27 +5,27 @@ if (!process.argv[2]) {
   process.exit()
 }
 
-function Node (val) {
+function BinarySearchTree () {
+  this.root = null
+}
+
+BinarySearchTree.prototype.Node = function (val) {
   this.value = val
   this.count = 1
   this.left = null
   this.right = null
 }
 
-function BinarySearchTree () {
-  this.root = null
-}
-
 BinarySearchTree.prototype.push = function (val) {
   var root = this.root
 
   if (!root) {
-    this.root = new Node(val)
+    this.root = new this.Node(val)
     return
   }
 
   var currentNode = root
-  var newNode = new Node(val)
+  var newNode = new this.Node(val)
 
   while (currentNode) {
     if (val === currentNode.value) {
